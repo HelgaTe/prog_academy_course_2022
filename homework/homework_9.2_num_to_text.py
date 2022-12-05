@@ -75,7 +75,7 @@ def price_to_text(price_num):
     text = f'{dollars} {cents}'
     return text
 
-
-# price = str(input('price = ').replace(',', '.'))
-price2 = '911.17'
-print(price_to_text(price2))
+if __name__=='__main__':
+    # price = str(input('price = ').replace(',', '.'))
+    price2 = '911.17'
+    print(price_to_text(price2))

@@ -37,9 +37,9 @@ print(card_num2 % 10_000)
 
 num = int(input('Enter three-digit number: '))
 
-num1 = num//100 # divide nums and round the result down to the nearest whole number >>> the 1st digit num
-num3 = num % 10 # gives the remainder when the first number is divided from the second number >>> the 3rd digit num
-num2 = num //10 % 10
+num1 = num//100  # divide nums and round the result down to the nearest whole number >>> the 1st digit num
+num3 = num % 10  # gives the remainder when the first number is divided from the second number >>> the 3rd digit num
+num2 = num // 10 % 10
 num_sum = num1 + num2 + num3
 
 print(num1, num2, num3, sep='\n')
