@@ -22,7 +22,7 @@ def mapping(element):
 
 def roman_converter(rom_input):
     for i in [item for item in set(rom_input)]:
-        if i * 4 in rom_input:
+        if i * 4 in rom_input or 'I'*4 in rom_input:
             return False
         break
 
@@ -48,7 +48,7 @@ def roman_converter(rom_input):
 
 if __name__ == '__main__':
 
-    test_num = 'XXVIIII, III, XXXXV, MCMIV, IV, XXII, XXIX, VII'
+    test_num = 'XXVIIII, XXVIII, III, XXXXV, MCMIV, IV, XXII, XXIX, VII'
     for n in test_num.split(', '):
         result = roman_converter(n)
         if result:
