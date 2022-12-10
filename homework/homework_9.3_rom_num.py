@@ -2,54 +2,56 @@
 Напишіть функцію, яка переводить ціле число з римського запису до десяткового.
 Наприклад: XXII -> 22
 """
-rom_dict = {
-    'I': 1,
-    'V': 5,
-    'X': 10,
-    'L': 50,
-    'C': 100,
-    'D': 500,
-    'M': 1000,
-}
+def mapping(element):
+    if element == 'I':
+        return 1
+    if element == 'V':
+        return 5
+    if element == 'X':
+        return 10
+    if element == 'L':
+        return 50
+    if element == 'C':
+        return 100
+    if element == 'D':
+        return 500
+    if element == 'M':
+        return 1000
+    return -1
 
-roman_num = 'XII'
 
-for i in roman_num:
-    res = 0
-    if i * 4 in roman_num:
-        print('Incorrect number')
+def roman_converter(rom_input):
+    for i in [item for item in set(rom_input)]:
+        if i * 4 in rom_input:
+            return False
         break
-    for j in range(len(roman_num)):
-        res += rom_dict[roman_num[j]]
-        try:
-            if rom_dict[roman_num[j]] < rom_dict[roman_num[j + 1]]:
-                deduction = rom_dict[roman_num[j]] * 2
-                res -= deduction
-        except IndexError:
-            pass
 
-print(res)
+    res = 0
+    i = 0
+    while i < len(rom_input):
+        s1 = mapping(rom_input[i])  # get value of symbol s[index]
+
+        if i + 1 < len(rom_input):
+            s2 = mapping(rom_input[i + 1])  # get value of the next symbols s[index]
+            if s1 >= s2:  # if the next symbol is lower compared to the previous >> add and get next symbol for analysis
+                res = res + s1
+                i = i + 1
+            else:  # if the next symbol os lower >> deduct and get next symbol for analysis, omitting that symbol
+                res = res + s2 - s1
+                i = i + 2
+        else:
+            res = res + s1
+            i = i + 1
+
+    return res
 
 
-# def rom_num_convert(number):
-#     result = 0
-#     for i in number:
-#         if i * 4 in number:
-#             return 'Incorrect number'
-#     else:
-#         for j in range(len(number)):
-#             result += rom_dict[number[j]]
-#             try:
-#                 if rom_dict[number[j]] < rom_dict[number[j + 1]]:
-#                     deduction = rom_dict[number[j]] * 2
-#                     result -= deduction
-#             except IndexError:
-#                 pass
-#             return result
-#
-# #
-# if __name__ == '__main__':
-#     test_num = 'XXXVIII, XXXVIIII, IIV, XXII, XXIX, XXIIII'
-#     for n in test_num.split(', '):
-#
-#         print(f'{n} >>> {rom_num_convert(n)}')
+if __name__ == '__main__':
+
+    test_num = 'XXVIIII, III, XXXXV, MCMIV, IV, XXII, XXIX, VII'
+    for n in test_num.split(', '):
+        result = roman_converter(n)
+        if result:
+            print(f'{n} >>> {roman_converter(n)}')
+        else:
+            print(f'{n} >>> Incorrect number')
