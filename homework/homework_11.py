@@ -31,10 +31,9 @@ class Order():
 
     def amount(self):
         if not self.product.stock:
-            return 'Order is not accepted\nReason: the product is out of stock'
+            return None
         elif self.quantity > self.product.stock:
-            return f'Order is not accepted\nReason: the stock is {self.product.stock}.' \
-                   f'\nThe required quantity is not sufficient'
+            return None
         else:
             self.product.stock = int(self.product.stock) - int(self.quantity)
             self.amount = self.quantity * self.product.price
@@ -70,3 +69,15 @@ print(f'Current stock of {mobile_3.name} {mobile_3.description} upon order accep
 print('=' * 50)
 print(order_4)
 print(f'Current stock of {mobile_4.name} {mobile_4.description} upon order acceptance: {mobile_4.stock}')
+
+
+# def amount(self):
+#     if not self.product.stock:
+#         return 'Order is not accepted\nReason: the product is out of stock'
+#     elif self.quantity > self.product.stock:
+#         return f'Order is not accepted\nReason: the stock is {self.product.stock}.' \
+#                f'\nThe required quantity is not sufficient'
+#     else:
+#         self.product.stock = int(self.product.stock) - int(self.quantity)
+#         self.amount = self.quantity * self.product.price
+#         return self.amount
