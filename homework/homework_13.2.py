@@ -2,13 +2,14 @@ import datetime
 from dateutil import relativedelta
 import logging
 
-
 logger = logging.Logger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(message)s')
 handler = logging.FileHandler(f'add_student.log')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+
+
 class GroupLimitError(Exception):
     def __init__(self, limit):
         self.limit = limit
@@ -74,8 +75,6 @@ class Group:
         return f'{self.course} group:\n' + '\n'.join(map(str, self.students))
 
 
-
-
 if __name__ == '__main__':
     try:
         student1 = Student('Olha', 'Telizhuk', 'Kyiv', 1991, 1, 15)
@@ -89,4 +88,3 @@ if __name__ == '__main__':
         print(group1)
     except Exception as error:
         print(error)
-
