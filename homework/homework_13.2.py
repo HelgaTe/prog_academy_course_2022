@@ -4,7 +4,7 @@ import logging
 
 logger = logging.Logger(__name__)
 logger.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler = logging.FileHandler(f'add_student.log')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -84,7 +84,7 @@ if __name__ == '__main__':
         group1.add_student(Student('David', 'Davidov', 'Lviv', 1992, 5, 19))
         group1.add_student(Student('Ivan', 'Baran', 'Kyiv', 1990, 12, 7))
         group1.add_student(Student('Misha', 'Mishka', 'Kharkiv', 1993, 8, 18))
-        # group1.add_student(student1)
+        group1.add_student(student1)
         print(group1)
     except Exception as error:
         print(error)
