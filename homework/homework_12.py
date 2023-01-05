@@ -48,12 +48,14 @@ if __name__ == '__main__':
     student1 = Student('Olha', 'Telizhuk', 'Kyiv', 1991, 1, 15)
     student2 = Student('David', 'Davidov', 'Lviv', 1992, 5, 19)
     student3 = Student('Ivan', 'Baran', 'Kyiv', 1990, 12, 7)
+    student4 = Student('Ivan', 'Baran', 'Kyiv', 1990, 12, 7)
 
     group1 = Group('PYTHON')
 
     group1.add_student(student1)
     group1.add_student(student2)
     group1.add_student(student3)
+    group1.add_student(student4)
 
     print(per1)
     print('=' * 50)
