@@ -10,3 +10,6 @@ class Student(person.Person):
 
     def __str__(self):
         return f'{self.l_name} {self.f_name}; {self.age} years; {self.city}'
+
+
+

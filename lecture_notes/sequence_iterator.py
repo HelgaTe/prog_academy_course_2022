@@ -3,6 +3,7 @@ x = [1, 2, 3, 4, 5, 6]
 it = iter(x)  # __iter__
 print(it)
 print(next(it))  # __next__ <gets the next item till # StopIteration error>
+print('='*30)
 
 
 class Order:
@@ -11,7 +12,7 @@ class Order:
         self.quantities = []
         self.prices = []
 
-    def add_product(self, product, price, qt=1):
+    def add_product(self, product, price, qt = 1):
         self.products.append(product)
         self.prices.append(price)
         self.quantities.append(qt)

@@ -85,3 +85,4 @@ if __name__ == '__main__':
     print('=' * 50)
     print(order1._Order__products)
     print(order1._Order__quantities)
+    print(order1.amount())

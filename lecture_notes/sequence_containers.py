@@ -25,6 +25,5 @@ x = MySeq(10)
 print(x[5])
 print(x[2:5])
 print(x[2::])
+print(x[::])
 
-# for item in x:
-#     print(item)
