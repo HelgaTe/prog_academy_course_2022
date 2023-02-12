@@ -65,22 +65,18 @@ Task 4: Напишіть функцію, яка перевіряє правил�
 Правильний логін – рядок від 2 до 10 символів, що містить лише літери та цифри.
 """
 
-logins = ['olga01',
-         'olga_01',
-         'olga_telizhuk',
-         'olga@t',
-         '#olga',
-         '@olga',
-         'o1ga',
-         'ot.finance']
+login1 = 'olga01'
+login2 =  'olga_01'
+login3 = 'olga1234567'
+login4 = 'olga123456'
 
-valid_logins = []
-for login in logins:
-    if len(login) in range(2,11):
-        if login.isalnum():
-            valid_logins.append(login)
+regex_4 = r'^[a-zA-Z0-9]{2,10}$'
+check1 = re.findall(regex_4, login1)
+check2 = re.findall(regex_4, login2)
+check3 = re.findall(regex_4, login3)
+check4 = re.findall(regex_4, login4)
 
-print(f'Task 4: {valid_logins}')
+print(f'Task 4: {check1} {check2} {check3} {check4}')
 
 
 
